@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model xmlns="http://www.opengroup.org/xsd/archimate/3.0/"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.opengroup.org/xsd/archimate/3.0/ http://www.opengroup.org/xsd/archimate/3.1/archimate3_Diagram.xsd"
+       identifier="id-model-mercedes-purchase">
+  
+  <name xml:lang="en">Mercedes-Benz Purchase Process - Pak Ali &amp; PT Anugrah</name>
+
+  <!-- ==================== ELEMENTS ==================== -->
+  <elements>
+    <!-- Active Structure: Actors -->
+    <element identifier="elem-actor-ali" xsi:type="BusinessActor">
+      <name xml:lang="id">Pak Ali</name>
+    </element>
+    <element identifier="elem-actor-anugrah" xsi:type="BusinessActor">
+      <name xml:lang="id">PT Anugrah</name>
+    </element>
+    <element identifier="elem-actor-nick" xsi:type="BusinessActor">
+      <name xml:lang="id">Nick</name>
+    </element>
+
+    <!-- Active Structure: Roles -->
+    <element identifier="elem-role-buyer" xsi:type="BusinessRole">
+      <name xml:lang="id">Car Buyer</name>
+    </element>
+    <element identifier="elem-role-sales" xsi:type="BusinessRole">
+      <name xml:lang="id">Sales Representative</name>
+    </element>
+    <element identifier="elem-role-accounting" xsi:type="BusinessRole">
+      <name xml:lang="id">Dealer Accountant</name>
+    </element>
+
+    <!-- Active Structure: Collaboration & Interfaces -->
+    <element identifier="elem-collab-deal" xsi:type="BusinessCollaboration">
+      <name xml:lang="id">Purchase Deal Collaboration</name>
+    </element>
+    <element identifier="elem-iface-digital" xsi:type="BusinessInterface">
+      <name xml:lang="id">YouTube &amp; Website Mercedes-Benz</name>
+    </element>
+    <element identifier="elem-iface-showroom" xsi:type="BusinessInterface">
+      <name xml:lang="id">Showroom PT Anugrah</name>
+    </element>
+
+    <!-- Behavior: Processes -->
+    <element identifier="elem-proc-main" xsi:type="BusinessProcess">
+      <name xml:lang="id">End-to-End Car Purchasing Process</name>
+    </element>
+    <element identifier="elem-proc-research" xsi:type="BusinessProcess">
+      <name xml:lang="id">Product Research &amp; Review</name>
+    </element>
+    <element identifier="elem-proc-testdrive" xsi:type="BusinessProcess">
+      <name xml:lang="id">Showroom Consultation &amp; Test Drive</name>
+    </element>
+    <element identifier="elem-proc-booking" xsi:type="BusinessProcess">
+      <name xml:lang="id">Down Payment &amp; Indent Booking</name>
+    </element>
+    <element identifier="elem-proc-settlement" xsi:type="BusinessProcess">
+      <name xml:lang="id">Full Settlement Verification</name>
+    </element>
+    <element identifier="elem-proc-delivery" xsi:type="BusinessProcess">
+      <name xml:lang="id">Vehicle Home Delivery</name>
+    </element>
+
+    <!-- Behavior: Events & Services -->
+    <element identifier="elem-evt-port-arrival" xsi:type="BusinessEvent">
+      <name xml:lang="id">Unit Arrived at Port (After 6 Months)</name>
+    </element>
+    <element identifier="elem-svc-sales" xsi:type="BusinessService">
+      <name xml:lang="id">Mercedes-Benz Indent &amp; Acquisition Service</name>
+    </element>
+
+    <!-- Passive Structure: Objects, Products, & Meanings -->
+    <element identifier="elem-obj-brochure" xsi:type="BusinessObject">
+      <name xml:lang="id">Brosur &amp; Spesifikasi Resmi</name>
+    </element>
+    <element identifier="elem-obj-spk" xsi:type="BusinessObject">
+      <name xml:lang="id">SPK Indent &amp; Kwitansi DP</name>
+    </element>
+    <element identifier="elem-obj-bastk" xsi:type="BusinessObject">
+      <name xml:lang="id">Faktur Lunas &amp; Dokumen BASTK</name>
+    </element>
+    <element identifier="elem-prod-car" xsi:type="Product">
+      <name xml:lang="id">Paket Kendaraan Mercedes-Benz Baru</name>
+    </element>
+    <element identifier="elem-mean-ownership" xsi:type="Meaning">
+      <name xml:lang="id">Kepemilikan Sah &amp; Garansi Resmi</name>
+    </element>
+  </elements>
+
+  <!-- ==================== RELATIONSHIPS ==================== -->
+  <relationships>
+    <!-- Assignment Relations (Actors to Roles) -->
+    <relationship identifier="rel-assign-1" source="elem-actor-ali" target="elem-role-buyer" xsi:type="Assignment" />
+    <relationship identifier="rel-assign-2" source="elem-actor-nick" target="elem-role-sales" xsi:type="Assignment" />
+    <relationship identifier="rel-assign-3" source="elem-actor-anugrah" target="elem-role-sales" xsi:type="Assignment" />
+    <relationship identifier="rel-assign-4" source="elem-actor-anugrah" target="elem-role-accounting" xsi:type="Assignment" />
+
+    <!-- Aggregation of Roles into Collaboration -->
+    <relationship identifier="rel-aggr-1" source="elem-collab-deal" target="elem-role-buyer" xsi:type="Aggregation" />
+    <relationship identifier="rel-aggr-2" source="elem-collab-deal" target="elem-role-sales" xsi:type="Aggregation" />
+
+    <!-- Process Composition -->
+    <relationship identifier="rel-comp-1" source="elem-proc-main" target="elem-proc-research" xsi:type="Composition" />
+    <relationship identifier="rel-comp-2" source="elem-proc-main" target="elem-proc-testdrive" xsi:type="Composition" />
+    <relationship identifier="rel-comp-3" source="elem-proc-main" target="elem-proc-booking" xsi:type="Composition" />
+    <relationship identifier="rel-comp-4" source="elem-proc-main" target="elem-proc-settlement" xsi:type="Composition" />
+    <relationship identifier="rel-comp-5" source="elem-proc-main" target="elem-proc-delivery" xsi:type="Composition" />
+
+    <!-- Assignment to Processes -->
+    <relationship identifier="rel-assign-5" source="elem-role-buyer" target="elem-proc-research" xsi:type="Assignment" />
+    <relationship identifier="rel-assign-6" source="elem-collab-deal" target="elem-proc-testdrive" xsi:type="Assignment" />
+    <relationship identifier="rel-assign-7" source="elem-role-accounting" target="elem-proc-booking" xsi:type="Assignment" />
+    <relationship identifier="rel-assign-8" source="elem-role-accounting" target="elem-proc-settlement" xsi:type="Assignment" />
+    <relationship identifier="rel-assign-9" source="elem-role-sales" target="elem-proc-delivery" xsi:type="Assignment" />
+
+    <!-- Serving Relationships (Interfaces to Processes/Roles) -->
+    <relationship identifier="rel-serve-1" source="elem-iface-digital" target="elem-proc-research" xsi:type="Serving" />
+    <relationship identifier="rel-serve-2" source="elem-iface-showroom" target="elem-proc-testdrive" xsi:type="Serving" />
+
+    <!-- Triggering Flow -->
+    <relationship identifier="rel-trig-1" source="elem-proc-booking" target="elem-evt-port-arrival" xsi:type="Triggering" />
+    <relationship identifier="rel-trig-2" source="elem-evt-port-arrival" target="elem-proc-settlement" xsi:type="Triggering" />
+    <relationship identifier="rel-trig-3" source="elem-proc-settlement" target="elem-proc-delivery" xsi:type="Triggering" />
+
+    <!-- Access Relationships (Processes to Business Objects) -->
+    <relationship identifier="rel-access-1" source="elem-proc-testdrive" target="elem-obj-brochure" xsi:type="Access" accessType="Read" />
+    <relationship identifier="rel-access-2" source="elem-proc-booking" target="elem-obj-spk" xsi:type="Access" accessType="Write" />
+    <relationship identifier="rel-access-3" source="elem-proc-delivery" target="elem-obj-bastk" xsi:type="Access" accessType="Write" />
+
+    <!-- Realization and Packaging -->
+    <relationship identifier="rel-realize-1" source="elem-proc-main" target="elem-svc-sales" xsi:type="Realization" />
+    <relationship identifier="rel-aggr-prod" source="elem-prod-car" target="elem-svc-sales" xsi:type="Aggregation" />
+    <relationship identifier="rel-assoc-meaning" source="elem-prod-car" target="elem-mean-ownership" xsi:type="Association" />
+  </relationships>
+
+</model>
